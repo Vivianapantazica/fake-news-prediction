@@ -10,7 +10,7 @@ import seaborn as sns
 EMBEDDING_DIM = 500
 EPOCHS = 50
 
-df = pd.read_csv('./processed_train.csv')
+df = pd.read_csv('../processed_train.csv')
 tokenized_sentences = [text.split() for text in df['Cleaned_text']]
 word2vec_model = Word2Vec(sentences=tokenized_sentences, vector_size=EMBEDDING_DIM, window=5, min_count=2, workers=4)
 word2vec_model.train(tokenized_sentences, total_examples=len(tokenized_sentences), epochs=EPOCHS)

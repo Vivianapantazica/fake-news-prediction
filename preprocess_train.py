@@ -38,7 +38,7 @@ def preprocess_french_text(text):
     return ' '.join(words)
 
 
-df = pd.read_csv('./train.csv')
+df = pd.read_csv('../train.csv')
 df['Categorized_label'] = df['Label'].apply(categorize_label)
 
 # Check distribution of categories

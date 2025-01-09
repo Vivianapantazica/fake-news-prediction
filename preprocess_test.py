@@ -29,6 +29,6 @@ def preprocess_french_text(text):
     return ' '.join(words)
 
 
-df = pd.read_csv('./test.csv')
+df = pd.read_csv('../test.csv')
 df['Cleaned_text'] = df['Text'].apply(preprocess_french_text)
 df.to_csv('./processed_test.csv', index=False)

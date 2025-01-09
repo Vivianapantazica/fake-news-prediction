@@ -6,7 +6,7 @@ from gensim.models import Word2Vec
 EMBEDDING_DIM = 500
 EPOCHS = 17
 
-df_train = pd.read_csv('./processed_train.csv')
+df_train = pd.read_csv('../processed_train.csv')
 tokenized_sentences = [text.split() for text in df_train['Cleaned_text']]
 word2vec_model = Word2Vec(sentences=tokenized_sentences, vector_size=EMBEDDING_DIM, window=5, min_count=2, workers=4)
 word2vec_model.train(tokenized_sentences, total_examples=len(tokenized_sentences), epochs=EPOCHS)
@@ -23,7 +23,7 @@ padded_sequences = pad_sequences(sequences, maxlen=EMBEDDING_DIM, padding='post'
 X_train = padded_sequences
 y_train = df_train['Categorized_label']
 
-df_test = pd.read_csv('./processed_test.csv')
+df_test = pd.read_csv('../processed_test.csv')
 tokenized_sentences_test = [text.split() for text in df_test['Cleaned_text']]
 word2vec_model_test = Word2Vec(sentences=tokenized_sentences_test, vector_size=EMBEDDING_DIM, window=5, min_count=2, workers=4)
 word2vec_model_test.train(tokenized_sentences_test, total_examples=len(tokenized_sentences_test), epochs=EPOCHS)
